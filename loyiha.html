@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oilada Mustaqillik yillari yutuqlari muhokamasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EC;
+    --ink:#20291F;
+    --teal:#0E6E63;
+    --teal-deep:#0A4F47;
+    --teal-tint:#E7F1EE;
+    --gold:#C6932E;
+    --gold-soft:#E8CE9A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,.display{
+    font-family:'Fraunces', serif;
+    letter-spacing:-0.01em;
+  }
+
+  /* ---------- Ornamental star border ---------- */
+  .ornament{
+    width:100%;
+    height:28px;
+    display:block;
+  }
+  .ornament.flip{ transform:scaleY(-1); }
+
+  /* ---------- Header ---------- */
+  header{
+    max-width:780px;
+    margin:0 auto;
+    padding:28px 24px 0;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .logo-wrap{
+    margin-left:auto;
+    position:relative;
+    width:64px;
+    height:64px;
+    flex-shrink:0;
+  }
+  .my-logo{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:14px;
+    display:block;
+  }
+  .logo-ring{
+    position:absolute;
+    inset:-7px;
+    border-radius:50%;
+    border:3px solid transparent;
+    border-top-color:#9FE0FF;
+    border-left-color:#9FE0FF;
+    z-index:1;
+    animation:logoRingSpin 10s linear infinite;
+  }
+  @keyframes logoRingSpin{
+    0%{ transform:rotate(0deg); }
+    30%{ transform:rotate(360deg); }
+    100%{ transform:rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .logo-ring{ animation:none; }
+  }
+  .badge{
+    width:52px; height:52px; border-radius:50%;
+    background:var(--teal);
+    flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 14px rgba(14,110,99,0.25);
+  }
+  .brand{
+    font-size:15px;
+    font-weight:700;
+    color:var(--teal-deep);
+  }
+  .brand small{
+    display:block;
+    font-weight:500;
+    font-size:12px;
+    color:#6B7A6D;
+    margin-top:2px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:780px;
+    margin:0 auto;
+    padding:36px 24px 8px;
+    text-align:center;
+  }
+  .eyebrow{
+    font-size:13px;
+    color:var(--gold);
+    font-weight:700;
+  }
+  .hero h1{
+    font-size:clamp(30px,5vw,46px);
+    font-weight:700;
+    line-height:1.12;
+    margin:14px 0 12px;
+    color:var(--teal-deep);
+  }
+  .hero p{
+    font-size:16px;
+    color:#4B5A4C;
+    max-width:520px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+  .presenters{
+    margin-top:20px;
+    display:inline-flex;
+    gap:10px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal-deep);
+    background:var(--teal-tint);
+    padding:8px 18px;
+    border-radius:999px;
+  }
+
+  main{
+    max-width:780px;
+    margin:0 auto;
+    padding:36px 24px 8px;
+  }
+
+  /* ---------- Family quote ---------- */
+  .family-quote{
+    position:relative;
+    background:white;
+    border:1px solid #E4DDC9;
+    border-radius:4px;
+    padding:30px 30px 28px 64px;
+    margin-bottom:44px;
+  }
+  .family-quote svg.mark{
+    position:absolute;
+    left:22px; top:26px;
+    width:26px; height:26px;
+    color:var(--gold);
+  }
+  .family-quote p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.55;
+    color:var(--ink);
+    margin:0;
+  }
+  .family-quote span{
+    display:block;
+    margin-top:14px;
+    font-family:'Manrope', sans-serif;
+    font-style:normal;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal);
+  }
+
+  /* ---------- Section label ---------- */
+  .section-title{
+    font-size:22px;
+    font-weight:700;
+    color:var(--teal-deep);
+    margin:0 0 20px;
+    text-align:center;
+  }
+
+  /* ---------- Accordion ---------- */
+  .topic{
+    border-top:1px solid #DCD3B8;
+  }
+  .topic:last-child{ border-bottom:1px solid #DCD3B8; }
+  .topic-trigger{
+    width:100%;
+    background:none;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px 4px;
+    text-align:left;
+    font-family:inherit;
+  }
+  .topic-trigger:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:4px;
+  }
+  .topic-icon{
+    width:44px; height:44px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--teal-tint);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--teal-deep);
+    transition:background .25s ease, color .25s ease;
+  }
+  .topic-trigger[aria-expanded="true"] .topic-icon{
+    background:var(--teal);
+    color:white;
+  }
+  .topic-heading{
+    flex-grow:1;
+  }
+  .topic-heading h3{
+    margin:0;
+    font-size:17px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .topic-heading p{
+    margin:2px 0 0;
+    font-size:13px;
+    color:#7A8A7B;
+  }
+  .topic-plus{
+    width:22px; height:22px;
+    flex-shrink:0;
+    position:relative;
+  }
+  .topic-plus::before, .topic-plus::after{
+    content:"";
+    position:absolute;
+    background:var(--teal-deep);
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .topic-plus::before{ width:14px; height:2px; }
+  .topic-plus::after{ width:2px; height:14px; transition:transform .25s ease; }
+  .topic-trigger[aria-expanded="true"] .topic-plus::after{ transform:translate(-50%,-50%) rotate(90deg) scaleY(0); }
+
+  .topic-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+  }
+  .topic-body-inner{
+    padding:0 4px 24px 76px;
+    font-size:15.5px;
+    line-height:1.65;
+    color:#3C473D;
+  }
+
+  /* ---------- Mavzu / Maqol switcher ---------- */
+  .switch-section{
+    margin:52px 0 8px;
+  }
+  .switch-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .switch-btn{
+    font-family:'Manrope', sans-serif;
+    font-size:15px;
+    font-weight:700;
+    color:var(--teal-deep);
+    background:var(--teal-tint);
+    border:1px solid transparent;
+    border-radius:999px;
+    padding:10px 26px;
+    cursor:pointer;
+    transition:background .25s ease, color .25s ease, transform .15s ease;
+  }
+  .switch-btn:hover{ transform:translateY(-1px); }
+  .switch-btn.active{
+    background:var(--teal);
+    color:#fff;
+  }
+  .switch-btn:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+  .switch-panel{
+    display:none;
+    background:white;
+    border:1px solid #E4DDC9;
+    border-radius:4px;
+    padding:26px 26px 26px 20px;
+  }
+  .switch-panel.active{ display:block; }
+  .switch-panel ol{
+    margin:0;
+    padding-left:22px;
+    list-style:decimal;
+  }
+  .switch-panel li{
+    font-size:15px;
+    line-height:1.7;
+    color:#3C473D;
+    padding:4px 0;
+  }
+  .switch-panel#panel-maqol li{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--teal-deep);
+  }
+
+  /* ---------- Closing statement ---------- */
+  .closing{
+    margin:52px 0 8px;
+    text-align:center;
+    padding:36px 8px 0;
+    border-top:1px solid var(--gold-soft);
+  }
+  .closing p{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(19px,2.6vw,23px);
+    line-height:1.55;
+    color:var(--teal-deep);
+    max-width:600px;
+    margin:0 auto;
+  }
+
+  footer{
+    max-width:780px;
+    margin:0 auto;
+    padding:34px 24px 44px;
+    text-align:center;
+    font-size:12.5px;
+    color:#8A9A8B;
+  }
+  footer .names{
+    color:var(--teal-deep);
+    font-weight:700;
+    margin-bottom:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .topic-body, .hero, main { transition:none !important; }
+  }
+
+  /* entrance, single orchestrated moment */
+  .hero, main{
+    animation:rise .6s ease both;
+  }
+  main{ animation-delay:.08s; }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<svg class="ornament" viewBox="0 0 400 28" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="star1" width="40" height="28" patternUnits="userSpaceOnUse">
+      <rect width="40" height="28" fill="var(--teal)"/>
+      <path d="M20 5 L23 12 L20 19 L17 12 Z M20 5 L27 8 L20 14 L13 8 Z M20 19 L27 16 L20 10 L13 16Z" fill="var(--gold)" opacity="0.85"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="28" fill="url(#star1)"/>
+</svg>
+
+<header>
+  <div class="badge">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="4.2" fill="#F4CB63"/>
+      <g stroke="#F4CB63" stroke-width="1.6" stroke-linecap="round">
+        <line x1="12" y1="2" x2="12" y2="4.6"/>
+        <line x1="12" y1="19.4" x2="12" y2="22"/>
+        <line x1="2" y1="12" x2="4.6" y2="12"/>
+        <line x1="19.4" y1="12" x2="22" y2="12"/>
+        <line x1="4.9" y1="4.9" x2="6.7" y2="6.7"/>
+        <line x1="17.3" y1="17.3" x2="19.1" y2="19.1"/>
+        <line x1="4.9" y1="19.1" x2="6.7" y2="17.3"/>
+        <line x1="17.3" y1="6.7" x2="19.1" y2="4.9"/>
+      </g>
+    </svg>
+  </div>
+  <div class="brand">
+    O‘zbekiston Mustaqilligi
+    <small>Ma'naviy-ma'rifiy soat</small>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">Oilaviy suhbat</span>
+  <h1>Mustaqillik yillari yutuqlari</h1>
+  <p>Oilamizda kechqurun choy ustida tez-tez mamlakatimizning rivojlanishi haqida suhbatlashamiz. Otam, onam va bobom o‘zlari ko‘rgan o‘zgarishlarni gapirib berishadi, biz esa qiziqib tinglaymiz. Quyida shu suhbatdan lavhalar — har bir bo‘limni bosib o‘qing.</p>
+  <div class="presenters">
+    <span>O‘qiydi: Islom bilan birga</span>
+  </div>
+</section>
+
+<main>
+
+  <div class="family-quote">
+    <svg class="mark" viewBox="0 0 24 24" fill="currentColor"><path d="M7.17 6C4.86 6 3 7.86 3 10.17c0 2.06 1.4 3.85 3.36 4.3-.14 1.06-.75 1.98-1.86 2.53v1.5c2.6-.4 4.5-2.5 4.5-5.5V10.17C9 7.86 9.29 6 7.17 6zm10 0c-2.31 0-4.17 1.86-4.17 4.17 0 2.06 1.4 3.85 3.36 4.3-.14 1.06-.75 1.98-1.86 2.53v1.5c2.6-.4 4.5-2.5 4.5-5.5V10.17C19 7.86 19.29 6 17.17 6z"/></svg>
+    <p>O‘zbekiston mustaqillikka erishganidan keyin mamlakatimizda katta o‘zgarishlar amalga oshirildi. Mustaqillik xalqimizga o‘z taqdirini o‘zi belgilash imkonini berdi. Yurtimizda tinchlik va osoyishtalikni saqlashga katta e’tibor berildi. Mustaqillik xalqimiz uchun katta tarixiy voqea bo‘ldi.</p>
+    <span>Oilaviy suhbatdan</span>
+  </div>
+
+  <h2 class="section-title">Suhbatda gapirilgan yutuqlar</h2>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t1" onclick="toggleTopic(this,'t1')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 8l10 5 10-5-10-5Z" stroke-linejoin="round"/><path d="M6 10.5v5c0 1.2 2.7 3 6 3s6-1.8 6-3v-5"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Ta'lim</h3>
+        <p>Maktab va bilim olish</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t1">
+      <div class="topic-body-inner">
+        Mamlakatimizda yangi maktablar qurildi. Ta’lim sohasida ko‘plab islohotlar amalga oshirildi. Yoshlarning bilim olishi uchun keng imkoniyatlar yaratildi. Oliy ta’lim muassasalari soni ko‘paydi. Yangi kasb-hunarlarni o‘rganish imkoniyatlari kengaydi. Yoshlar turli tanlov va musobaqalarda faol qatnashmoqda.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t2" onclick="toggleTopic(this,'t2')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 15 9 22 10 17 15 18 22 12 18.5 6 22 7 15 2 10 9 9 12 2Z" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Sport yutuqlari</h3>
+        <p>Xalqaro g‘alabalar</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t2">
+      <div class="topic-body-inner">
+        Sport sohasida ham katta yutuqlarga erishildi. O‘zbekistonlik sportchilar xalqaro musobaqalarda g‘olib bo‘lmoqda. Sport inshootlari va stadionlar qurildi. Bolalar sporti rivojiga katta e’tibor berildi.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t3" onclick="toggleTopic(this,'t3')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9.5-9C.7 8.2 2.4 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.6 4 23.3 8.2 21.5 12 19 16.5 12 21 12 21Z"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Sog‘liqni saqlash</h3>
+        <p>Zamonaviy shifoxonalar</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t3">
+      <div class="topic-body-inner">
+        Mamlakatimizda zamonaviy shifoxonalar bunyod etildi. Tibbiyot sohasida yangi texnologiyalardan foydalanilmoqda. Aholiga tibbiy xizmat ko‘rsatish imkoniyatlari yaxshilandi.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t4" onclick="toggleTopic(this,'t4')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Qurilish va infratuzilma</h3>
+        <p>Uy-joy, yo‘l, transport</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t4">
+      <div class="topic-body-inner">
+        Shahar va qishloqlarda yangi uy-joylar qurildi. Ko‘plab mahallalar obodonlashtirildi. Yo‘llar va ko‘priklar ta’mirlandi. Transport tizimi rivojlantirildi. Yangi zamonaviy binolar barpo etildi.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t5" onclick="toggleTopic(this,'t5')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Iqtisodiyot va tadbirkorlik</h3>
+        <p>Yangi korxonalar, ish o‘rinlari</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t5">
+      <div class="topic-body-inner">
+        Tadbirkorlikni rivojlantirish uchun sharoitlar yaratildi. Ko‘plab yangi korxonalar ishga tushirildi. Yangi ish o‘rinlari tashkil etildi. Mahalliy mahsulotlar ishlab chiqarish rivojlandi. Qishloq xo‘jaligida zamonaviy texnologiyalardan foydalanila boshlandi. Fermerlar uchun yangi imkoniyatlar yaratildi. Mamlakatimiz iqtisodiyoti rivojlanib bormoqda. Savdo va xizmat ko‘rsatish sohalari kengaydi.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t6" onclick="toggleTopic(this,'t6')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Raqamli texnologiyalar</h3>
+        <p>Internet va aloqa</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t6">
+      <div class="topic-body-inner">
+        Raqamli texnologiyalar hayotimizga keng kirib keldi. Internet va zamonaviy aloqa vositalaridan foydalanish oshdi. Yoshlar zamonaviy texnologiyalarni o‘rganmoqda.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t7" onclick="toggleTopic(this,'t7')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9s1.3-6.5 3.8-9Z"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Xalqaro aloqalar</h3>
+        <p>Do‘stona munosabatlar</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t7">
+      <div class="topic-body-inner">
+        O‘zbekistonning xalqaro aloqalari kengaydi. Mamlakatimiz ko‘plab davlatlar bilan do‘stona munosabatlar o‘rnatdi. O‘zbekiston xalqaro tadbirlarda faol ishtirok etmoqda.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t8" onclick="toggleTopic(this,'t8')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 12l8 10 8-10Z" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Milliy qadriyatlar</h3>
+        <p>Til, tarix va an’analar</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t8">
+      <div class="topic-body-inner">
+        Milliy qadriyatlarimizga bo‘lgan e’tibor kuchaydi. Ona tilimizni rivojlantirishga katta ahamiyat berildi. Milliy madaniyatimiz va san’atimiz rivojlandi. Tarixiy obidalarimiz ta’mirlandi va asrab-avaylanmoqda. Ajdodlarimizning boy merosi chuqur o‘rganilmoqda. Milliy bayramlarimiz keng nishonlanmoqda.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t9" onclick="toggleTopic(this,'t9')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Turizm</h3>
+        <p>Samarqand, Buxoro, Xiva</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t9">
+      <div class="topic-body-inner">
+        Turizm sohasida ham katta o‘zgarishlar amalga oshirildi. Yurtimizga xorijiy sayyohlar tashrif buyurmoqda. Samarqand, Buxoro va Xiva kabi tarixiy shaharlarimiz dunyoga mashhur. O‘zbekistonning go‘zal tabiati ham ko‘plab insonlarni qiziqtiradi.
+      </div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <button class="topic-trigger" aria-expanded="false" aria-controls="t10" onclick="toggleTopic(this,'t10')">
+      <div class="topic-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M2 21c0-3.3 2.7-6 6-6s6 2.7 6 6M14 21c0-2 .8-3.8 2-5"/></svg>
+      </div>
+      <div class="topic-heading">
+        <h3>Ijtimoiy hayot</h3>
+        <p>Farovonlik va oila</p>
+      </div>
+      <span class="topic-plus"></span>
+    </button>
+    <div class="topic-body" id="t10">
+      <div class="topic-body-inner">
+        Mustaqillik yillarida xalqimizning hayot tarzi o‘zgardi. Aholining farovonligini oshirishga katta e’tibor qaratildi. Mahallalarda obodonlashtirish ishlari olib borilmoqda. Yosh oilalar uchun yangi imkoniyatlar yaratilmoqda. Ayollar va yoshlarni qo‘llab-quvvatlashga e’tibor kuchaydi. Xalqimizning milliy o‘zligini anglash hissi yanada mustahkamlandi.
+      </div>
+    </div>
+  </div>
+
+  <section class="switch-section">
+    <h2 class="section-title">Mavzu va maqollar</h2>
+    <div class="switch-tabs">
+      <button class="switch-btn active" id="btn-matn" onclick="showPanel('matn')">Mavzu</button>
+      <button class="switch-btn" id="btn-maqol" onclick="showPanel('maqol')">Maqol</button>
+      <button class="switch-btn" id="btn-yutuq" onclick="showPanel('yutuq')">O‘zbekiston yutug‘i</button>
+    </div>
+    <div class="switch-panel active" id="panel-matn">
+      <ol>
+          <li>O‘zbekiston 1991-yil 1-sentabrda mustaqillikka erishdi.</li>
+          <li>Mustaqillik xalqimiz uchun katta tarixiy voqeadir.</li>
+          <li>Mustaqillik tufayli O‘zbekiston o‘z yo‘lini tanladi.</li>
+          <li>Davlatimizning bayrog‘i qabul qilindi.</li>
+          <li>O‘zbekistonning gerbi tasdiqlandi.</li>
+          <li>Milliy madhiyamiz yaratildi.</li>
+          <li>O‘zbek so‘mi muomalaga kiritildi.</li>
+          <li>O‘zbekiston dunyo davlatlari bilan aloqalar o‘rnatdi.</li>
+          <li>Mamlakatimizning xalqaro nufuzi oshdi.</li>
+          <li>Yoshlar uchun ko‘plab imkoniyatlar yaratildi.</li>
+          <li>Ta’lim sohasida katta o‘zgarishlar bo‘ldi.</li>
+          <li>Yangi maktablar qurildi.</li>
+          <li>Zamonaviy universitetlar tashkil etildi.</li>
+          <li>O‘quvchilar uchun yangi darsliklar yaratildi.</li>
+          <li>Yoshlar chet tillarini o‘rganish imkoniga ega bo‘ldi.</li>
+          <li>Sportga katta e’tibor berildi.</li>
+          <li>O‘zbekistonlik sportchilar xalqaro musobaqalarda qatnashmoqda.</li>
+          <li>Sportchilarimiz ko‘plab medallarni qo‘lga kiritmoqda.</li>
+          <li>Shaharlarimiz yanada obod bo‘ldi.</li>
+          <li>Qishloqlarda ham katta bunyodkorlik ishlari olib borildi.</li>
+          <li>Yangi uy-joylar qurildi.</li>
+          <li>Zamonaviy yo‘llar barpo etildi.</li>
+          <li>Yangi ko‘priklar qurildi.</li>
+          <li>Transport tizimi rivojlandi.</li>
+          <li>Temir yo‘llar modernizatsiya qilindi.</li>
+          <li>Tezyurar poyezdlar qatnovi yo‘lga qo‘yildi.</li>
+          <li>Toshkent zamonaviy shaharga aylandi.</li>
+          <li>Samarqandda ko‘plab obodonlashtirish ishlari amalga oshirildi.</li>
+          <li>Buxoro va Xiva shaharlarining tarixiy obidalari ta’mirlandi.</li>
+          <li>Tarixiy merosimizga katta e’tibor berildi.</li>
+          <li>Milliy qadriyatlarimiz qayta tiklandi.</li>
+          <li>Navro‘z bayrami keng nishonlana boshlandi.</li>
+          <li>Milliy urf-odatlarimiz rivojlandi.</li>
+          <li>Ona tilimizga e’tibor kuchaydi.</li>
+          <li>O‘zbek tilining nufuzi oshdi.</li>
+          <li>Milliy san’atimiz rivojlandi.</li>
+          <li>O‘zbek kinosi taraqqiy etdi.</li>
+          <li>Teatrlar faoliyati rivojlandi.</li>
+          <li>Milliy musiqa san’atiga e’tibor berildi.</li>
+          <li>Hunarmandchilik rivojlandi.</li>
+          <li>Turizm sohasi kengaydi.</li>
+          <li>O‘zbekistonga ko‘plab sayyohlar kelmoqda.</li>
+          <li>Tarixiy shaharlarimiz dunyoga tanilmoqda.</li>
+          <li>Tadbirkorlik uchun yangi imkoniyatlar yaratildi.</li>
+          <li>Xususiy biznes rivojlandi.</li>
+          <li>Yangi korxonalar tashkil etildi.</li>
+          <li>Mahalliy mahsulotlar ishlab chiqarish ko‘paydi.</li>
+          <li>Qishloq xo‘jaligida yangi texnologiyalar qo‘llanildi.</li>
+          <li>Fermer xo‘jaliklari rivojlandi.</li>
+          <li>Meva-sabzavot yetishtirish kengaydi.</li>
+          <li>Tibbiyot sohasida ham katta o‘zgarishlar amalga oshirildi.</li>
+          <li>Zamonaviy shifoxonalar qurildi.</li>
+          <li>Tibbiy xizmatlar yaxshilandi.</li>
+          <li>Yangi tibbiy texnologiyalar joriy qilindi.</li>
+          <li>Bolalar salomatligiga katta e’tibor berildi.</li>
+          <li>Onalar va bolalar uchun tibbiy yordam rivojlandi.</li>
+          <li>Axborot texnologiyalari tez rivojlandi.</li>
+          <li>Internetdan foydalanish imkoniyatlari kengaydi.</li>
+          <li>Yoshlar zamonaviy kasblarni o‘rganmoqda.</li>
+          <li>Dasturlashga qiziqish ortmoqda.</li>
+          <li>Elektron xizmatlar rivojlanmoqda.</li>
+          <li>Davlat xizmatlaridan onlayn foydalanish imkoniyati yaratildi.</li>
+          <li>O‘zbekistonning xalqaro hamkorligi kengaydi.</li>
+          <li>Mamlakatimiz ko‘plab davlatlar bilan do‘stona aloqalar o‘rnatdi.</li>
+          <li>O‘zbekiston xalqaro tashkilotlar bilan hamkorlik qilmoqda.</li>
+          <li>Tinchlik va osoyishtalik qadrlanmoqda.</li>
+          <li>Xalqimizning farovonligini oshirishga e’tibor berilmoqda.</li>
+          <li>Mahallalarda obodonlashtirish ishlari olib borilmoqda.</li>
+          <li>Yangi bog‘lar tashkil etilmoqda.</li>
+          <li>Ko‘chalar obodonlashtirilmoqda.</li>
+          <li>Yashil hududlar ko‘paymoqda.</li>
+          <li>Ekologiyani asrashga e’tibor kuchaymoqda.</li>
+          <li>Daraxt ekish ishlari amalga oshirilmoqda.</li>
+          <li>Yoshlar uchun zamonaviy sport maydonlari qurilmoqda.</li>
+          <li>Bolalar uchun yangi bog‘chalar ochilmoqda.</li>
+          <li>Maktabgacha ta’lim rivojlanmoqda.</li>
+          <li>Oliy ta’lim olish imkoniyatlari kengaymoqda.</li>
+          <li>Talabalar uchun yangi imkoniyatlar yaratilmoqda.</li>
+          <li>Iqtidorli yoshlar qo‘llab-quvvatlanmoqda.</li>
+          <li>Yosh olimlar ilmiy izlanishlar olib bormoqda.</li>
+          <li>Ilm-fanga qiziqish ortmoqda.</li>
+          <li>O‘zbekistonda yangi loyihalar amalga oshirilmoqda.</li>
+          <li>Zamonaviy texnologiyalar hayotimizga kirib kelmoqda.</li>
+          <li>Mahalliy avtomobilsozlik rivojlandi.</li>
+          <li>Yangi zavod va fabrikalar qurildi.</li>
+          <li>Ish o‘rinlari yaratildi.</li>
+          <li>Ayollar uchun ham ko‘plab imkoniyatlar yaratildi.</li>
+          <li>Nogironligi bo‘lgan insonlarni qo‘llab-quvvatlashga e’tibor berilmoqda.</li>
+          <li>Keksalarga hurmat ko‘rsatish an’anasi davom etmoqda.</li>
+          <li>Mahalla tizimi rivojlanmoqda.</li>
+          <li>O‘zbekistonning milliy bayramlari keng nishonlanmoqda.</li>
+          <li>Mustaqillik bayrami xalqimiz uchun muhim bayramdir.</li>
+          <li>Har yili 1-sentabr Mustaqillik kuni sifatida nishonlanadi.</li>
+          <li>Mustaqillik bizga erkin va tinch hayot qurish imkonini berdi.</li>
+          <li>Biz o‘z tariximiz bilan faxrlanamiz.</li>
+          <li>Biz ajdodlarimiz merosini qadrlaymiz.</li>
+          <li>Yosh avlod Vatanga munosib farzand bo‘lishga intilmoqda.</li>
+          <li>O‘zbekistonning kelajagi yoshlar qo‘lida.</li>
+          <li>Mustaqillik yutuqlarini asrash har birimizning vazifamizdir.</li>
+          <li>Biz mustaqil O‘zbekiston bilan faxrlanamiz! 🇺🇿</li>
+          <li>O‘zbekistonning iqtisodiyoti yildan-yilga rivojlanmoqda.</li>
+          <li>Yangi zamonaviy binolar qurilmoqda.</li>
+          <li>Mamlakatimizda yangi ish o‘rinlari yaratilmoqda.</li>
+          <li>Yosh tadbirkorlar qo‘llab-quvvatlanmoqda.</li>
+          <li>Yurtimizda zamonaviy texnoparklar tashkil etilmoqda.</li>
+          <li>Qulay yashash sharoitlari yaratilmoqda.</li>
+          <li>Qishloqlarda yangi loyihalar amalga oshirilmoqda.</li>
+          <li>Shaharlarimizda yangi xiyobonlar barpo etilmoqda.</li>
+          <li>O‘zbekistonning xalqaro savdo aloqalari kengaymoqda.</li>
+          <li>Mahsulotlarimiz xorijiy davlatlarga eksport qilinmoqda.</li>
+          <li>Milliy hunarmandchiligimiz dunyoga tanilmoqda.</li>
+          <li>O‘zbek taomlari ham sayyohlar orasida mashhur bo‘lmoqda.</li>
+          <li>Mehmonxonalar soni ko‘paymoqda.</li>
+          <li>Turistik maskanlar yanada obod qilinmoqda.</li>
+          <li>Yoshlar xalqaro tanlovlarda ishtirok etmoqda.</li>
+          <li>O‘zbekistonlik o‘quvchilar fan olimpiadalarida g‘olib bo‘lmoqda.</li>
+          <li>Ilmiy markazlar faoliyati rivojlanmoqda.</li>
+          <li>Kutubxonalar zamonaviylashtirilmoqda.</li>
+          <li>Kitobxonlikka katta e’tibor berilmoqda.</li>
+          <li>Yoshlarning bo‘sh vaqtini mazmunli o‘tkazishi uchun sharoit yaratilmoqda.</li>
+          <li>Musiqa maktablari faoliyati rivojlanmoqda.</li>
+          <li>Bolalar sport bilan muntazam shug‘ullanmoqda.</li>
+          <li>Olimpiya sport turlariga qiziqish ortmoqda.</li>
+          <li>O‘zbekiston bayrog‘i xalqaro musobaqalarda baland ko‘tarilmoqda.</li>
+          <li>Vatanimizning tabiiy boyliklaridan oqilona foydalanishga e’tibor berilmoqda.</li>
+          <li>Tabiatni muhofaza qilish ishlari kuchaymoqda.</li>
+          <li>Yangi suv inshootlari barpo etilmoqda.</li>
+          <li>Elektr energiyasini ishlab chiqarish imkoniyatlari kengaymoqda.</li>
+          <li>Quyosh energiyasidan foydalanish rivojlanmoqda.</li>
+          <li>Zamonaviy aloqa vositalari keng tarqalmoqda.</li>
+          <li>Mobil texnologiyalardan foydalanish osonlashmoqda.</li>
+          <li>Elektron ta’lim imkoniyatlari rivojlanmoqda.</li>
+          <li>Maktablarda zamonaviy kompyuterlar qo‘llanilmoqda.</li>
+          <li>O‘quvchilar uchun yangi ta’lim dasturlari yaratilmoqda.</li>
+          <li>Chet el universitetlari bilan hamkorlik rivojlanmoqda.</li>
+          <li>Talabalar xorijda ta’lim olish imkoniyatiga ega bo‘lmoqda.</li>
+          <li>Yoshlar uchun turli grantlar ajratilmoqda.</li>
+          <li>Iqtidorli o‘quvchilar rag‘batlantirilmoqda.</li>
+          <li>O‘zbekistonning qadimiy tarixi chuqur o‘rganilmoqda.</li>
+          <li>Ajdodlarimizning ilmiy merosi qadrlanmoqda.</li>
+          <li>Amir Temur va buyuk ajdodlarimiz merosi o‘rganilmoqda.</li>
+          <li>Muzeylarimizda tarixiy buyumlar asrab kelinmoqda.</li>
+          <li>Milliy kiyimlarimizga qiziqish ortmoqda.</li>
+          <li>O‘zbek xalqining mehmondo‘stligi dunyoga mashhur.</li>
+          <li>O‘zbekiston tinchliksevar davlat sifatida tanilmoqda.</li>
+          <li>Xalqimiz kelajakka katta umid bilan qaramoqda.</li>
+          <li>Mustaqillik bizga o‘z milliy qadriyatlarimizni asrash imkonini berdi.</li>
+          <li>Har bir inson Vatan ravnaqi uchun hissa qo‘shishi mumkin.</li>
+          <li>Biz mustaqil yurtimizning kelajagiga ishonamiz.</li>
+          <li>Mustaqil O‘zbekistonimizning kelajagi yanada porloq bo‘lsin! 🇺🇿</li>
+      </ol>
+    </div>
+    <div class="switch-panel" id="panel-maqol">
+      <ol>
+          <li>Bilagi zo‘r birni yiqar, aqli zo‘r mingni yiqar.</li>
+          <li>Aql yoshda emas, boshda.</li>
+          <li>Yetti o‘lchab, bir kes.</li>
+          <li>Mehnat qilgan elda aziz.</li>
+          <li>Mehnatning tagi rohat.</li>
+          <li>Harakatda barakat.</li>
+          <li>Bugungi ishni ertaga qo‘yma.</li>
+          <li>Vaqting ketdi — baxting ketdi.</li>
+          <li>Ilm — aql chirog‘i.</li>
+          <li>Ilmli ming yashar, ilmsiz bir yashar.</li>
+          <li>O‘qigan o‘zar, o‘qimagan to‘zar.</li>
+          <li>Kitob — bilim bulog‘i.</li>
+          <li>Bilim boylikdan afzal.</li>
+          <li>Aql boylikdan afzal.</li>
+          <li>Yaxshidan bog‘ qoladi, yomondan dog‘.</li>
+          <li>Yaxshilik qil, dengizga ot.</li>
+          <li>Yaxshilikning mukofoti — yaxshilik.</li>
+          <li>Do‘st kulfatda bilinadi.</li>
+          <li>Do‘st achitib gapirar, dushman kuldirib.</li>
+          <li>Birlik bor joyda tiriklik bor.</li>
+          <li>Ahillik — katta boylik.</li>
+          <li>El bilan bo‘lgan — yurt bilan bo‘lgan.</li>
+          <li>Vatan ostonadan boshlanadi.</li>
+          <li>O‘zga yurtda shoh bo‘lguncha, o‘z yurtingda gado bo‘l.</li>
+          <li>Ona yurting — oltin beshiging.</li>
+          <li>Yurt tinch — sen tinch.</li>
+          <li>Tinchlik — eng katta boylik.</li>
+          <li>Sabr tagi — sariq oltin.</li>
+          <li>Sabr qilgan — murodiga yetar.</li>
+          <li>Shoshgan ishga shayton aralashar.</li>
+          <li>Shoshma-shosharlik — xatoga boshlaydi.</li>
+          <li>Har kim ekkanini o‘radi.</li>
+          <li>Nima eksang, shuni o‘rasan.</li>
+          <li>Daraxt mevasi bilan, odam mehnati bilan.</li>
+          <li>Ko‘p o‘ylagan — kam adashar.</li>
+          <li>Aql bilan ish qilgan adashmas.</li>
+          <li>Tilga e’tibor — elga e’tibor.</li>
+          <li>Oz so‘zla, soz so‘zla.</li>
+          <li>So‘zlaganda o‘yla, o‘ylaganda so‘yla.</li>
+          <li>Yaxshi so‘z — jon ozig‘i.</li>
+          <li>Shirin so‘z — shakar, achchiq so‘z — zahar.</li>
+          <li>Ko‘r ko‘rni qorong‘ida topar.</li>
+          <li>Bir kun tuz ichgan joyga qirq kun salom ber.</li>
+          <li>Kattaga hurmat, kichikka izzat.</li>
+          <li>Ota rozi — Xudo rozi.</li>
+          <li>Ona yurak, bola tilak.</li>
+          <li>Bola aziz, odobi undan aziz.</li>
+          <li>Qush uyasida ko‘rganini qiladi.</li>
+          <li>Odob bozorda sotilmas.</li>
+          <li>Hunarli kishi xor bo‘lmas.</li>
+          <li>Hunar — hunardan unar.</li>
+          <li>Yigit kishiga yetmish hunar oz.</li>
+          <li>Ustoz otangdek ulug‘.</li>
+          <li>Ustoz ko‘rmagan shogird har maqomga yo‘rg‘alar.</li>
+          <li>Ko‘p bilgan emas, ko‘p o‘ylagan dono.</li>
+          <li>Kuch birlikda.</li>
+          <li>Bir qo‘l bilan qarsak chalib bo‘lmas.</li>
+          <li>Yolg‘iz otning changi chiqmas.</li>
+          <li>Ko‘pdan ko‘p aql chiqadi.</li>
+          <li>Aqlli o‘zini ayblar, ahmoq do‘stini.</li>
+      </ol>
+    </div>
+    <div class="switch-panel" id="panel-yutuq">
+      <ol>
+          <li>O‘zbekiston 1991-yil 1-sentabrda mustaqillikka erishdi.</li>
+          <li>Mustaqillik xalqimiz uchun katta tarixiy voqeadir.</li>
+          <li>Mustaqillik tufayli O‘zbekiston o‘z yo‘lini tanladi.</li>
+          <li>Davlatimizning bayrog‘i qabul qilindi.</li>
+          <li>O‘zbekistonning gerbi tasdiqlandi.</li>
+          <li>Milliy madhiyamiz qabul qilindi.</li>
+          <li>O‘zbek so‘mi muomalaga kiritildi.</li>
+          <li>O‘zbekiston dunyo davlatlari bilan diplomatik aloqalar o‘rnatdi.</li>
+          <li>Mamlakatimizning xalqaro nufuzi oshdi.</li>
+          <li>Yoshlar uchun ko‘plab yangi imkoniyatlar yaratildi.</li>
+          <li>Ta’lim sohasida katta o‘zgarishlar amalga oshirildi.</li>
+          <li>Yangi maktablar qurildi.</li>
+          <li>Zamonaviy universitetlar tashkil etildi.</li>
+          <li>O‘quvchilar uchun yangi darsliklar yaratildi.</li>
+          <li>Yoshlar chet tillarini o‘rganish imkoniyatiga ega bo‘ldi.</li>
+          <li>Sport sohasiga katta e’tibor berildi.</li>
+          <li>O‘zbekistonlik sportchilar xalqaro musobaqalarda qatnashmoqda.</li>
+          <li>Sportchilarimiz xalqaro musobaqalarda medallarni qo‘lga kiritmoqda.</li>
+          <li>Shaharlarimiz yanada obod bo‘ldi.</li>
+          <li>Qishloqlarda ham bunyodkorlik ishlari olib borildi.</li>
+          <li>Yangi uy-joylar qurildi.</li>
+          <li>Zamonaviy yo‘llar barpo etildi.</li>
+          <li>Yangi ko‘priklar qurildi.</li>
+          <li>Transport tizimi rivojlandi.</li>
+          <li>Temir yo‘l tizimi modernizatsiya qilindi.</li>
+          <li>Tezyurar poyezdlar qatnovi yo‘lga qo‘yildi.</li>
+          <li>Toshkent zamonaviy shaharga aylanib bormoqda.</li>
+          <li>Samarqandda ko‘plab obodonlashtirish ishlari amalga oshirildi.</li>
+          <li>Buxoro va Xivadagi tarixiy obidalar ta’mirlandi.</li>
+          <li>Tarixiy merosimizni asrashga katta e’tibor berildi.</li>
+          <li>Milliy qadriyatlarimiz qayta tiklandi.</li>
+          <li>Navro‘z bayrami keng nishonlana boshlandi.</li>
+          <li>Milliy urf-odatlarimiz rivojlandi.</li>
+          <li>Ona tilimizga bo‘lgan e’tibor kuchaydi.</li>
+          <li>O‘zbek tilining nufuzi oshdi.</li>
+          <li>Milliy san’atimiz rivojlandi.</li>
+          <li>O‘zbek kinosi taraqqiy etdi.</li>
+          <li>Teatrlar faoliyati rivojlandi.</li>
+          <li>Milliy musiqa san’atiga katta e’tibor berildi.</li>
+          <li>Hunarmandchilik rivojlandi.</li>
+          <li>Turizm sohasi kengaydi.</li>
+          <li>O‘zbekistonga ko‘plab xorijiy sayyohlar kelmoqda.</li>
+          <li>Tarixiy shaharlarimiz dunyoga yanada mashhur bo‘lmoqda.</li>
+          <li>Tadbirkorlik uchun yangi imkoniyatlar yaratildi.</li>
+          <li>Xususiy biznes rivojlandi.</li>
+          <li>Yangi korxonalar tashkil etildi.</li>
+          <li>Mahalliy mahsulotlar ishlab chiqarish ko‘paydi.</li>
+          <li>Qishloq xo‘jaligida yangi texnologiyalar qo‘llanildi.</li>
+          <li>Fermer xo‘jaliklari rivojlandi.</li>
+          <li>Meva va sabzavot yetishtirish kengaydi.</li>
+          <li>Tibbiyot sohasida katta o‘zgarishlar amalga oshirildi.</li>
+          <li>Zamonaviy shifoxonalar qurildi.</li>
+          <li>Tibbiy xizmatlar yaxshilandi.</li>
+          <li>Yangi tibbiy texnologiyalar joriy qilindi.</li>
+          <li>Bolalar salomatligiga katta e’tibor berildi.</li>
+          <li>Onalar va bolalar uchun tibbiy xizmatlar rivojlandi.</li>
+          <li>Axborot texnologiyalari tez rivojlandi.</li>
+          <li>Internetdan foydalanish imkoniyatlari kengaydi.</li>
+          <li>Yoshlar zamonaviy kasblarni o‘rganmoqda.</li>
+          <li>Dasturlashga qiziqish ortmoqda.</li>
+          <li>Elektron xizmatlar rivojlanmoqda.</li>
+          <li>Ko‘plab davlat xizmatlaridan internet orqali foydalanish mumkin.</li>
+          <li>O‘zbekistonning xalqaro hamkorligi kengaydi.</li>
+          <li>Mamlakatimiz ko‘plab davlatlar bilan do‘stona aloqalar o‘rnatdi.</li>
+          <li>O‘zbekiston xalqaro tashkilotlar bilan hamkorlik qilmoqda.</li>
+          <li>Tinchlik va osoyishtalik qadrlanmoqda.</li>
+          <li>Xalqimizning farovonligini oshirishga e’tibor berilmoqda.</li>
+          <li>Mahallalarda obodonlashtirish ishlari olib borilmoqda.</li>
+          <li>Yangi bog‘lar tashkil etilmoqda.</li>
+          <li>Ko‘chalar obodonlashtirilmoqda.</li>
+          <li>Yashil hududlar ko‘paymoqda.</li>
+          <li>Ekologiyani asrashga e’tibor kuchaymoqda.</li>
+          <li>Daraxt ekish ishlari amalga oshirilmoqda.</li>
+          <li>Yoshlar uchun zamonaviy sport maydonlari qurilmoqda.</li>
+          <li>Bolalar uchun yangi bog‘chalar ochilmoqda.</li>
+          <li>Maktabgacha ta’lim rivojlanmoqda.</li>
+          <li>Oliy ta’lim olish imkoniyatlari kengaymoqda.</li>
+          <li>Talabalar uchun yangi imkoniyatlar yaratilmoqda.</li>
+          <li>Iqtidorli yoshlar qo‘llab-quvvatlanmoqda.</li>
+          <li>Yosh olimlar ilmiy izlanishlar olib bormoqda.</li>
+          <li>Ilm-fanga qiziqish ortmoqda.</li>
+          <li>O‘zbekistonda yangi loyihalar amalga oshirilmoqda.</li>
+          <li>Zamonaviy texnologiyalar hayotimizga kirib kelmoqda.</li>
+          <li>Mahalliy avtomobilsozlik rivojlandi.</li>
+          <li>Yangi zavod va fabrikalar qurildi.</li>
+          <li>Yangi ish o‘rinlari yaratildi.</li>
+          <li>Ayollar uchun yangi imkoniyatlar yaratildi.</li>
+          <li>Nogironligi bo‘lgan insonlarni qo‘llab-quvvatlashga e’tibor berilmoqda.</li>
+          <li>Keksalarga hurmat ko‘rsatish an’anasi davom etmoqda.</li>
+          <li>Mahalla tizimi rivojlanmoqda.</li>
+          <li>O‘zbekistonning milliy bayramlari keng nishonlanmoqda.</li>
+          <li>Mustaqillik bayrami xalqimiz uchun muhim bayramdir.</li>
+          <li>Har yili 1-sentabr Mustaqillik kuni sifatida nishonlanadi.</li>
+          <li>Mustaqillik bizga erkin va tinch hayot qurish imkonini berdi.</li>
+          <li>Biz o‘z tariximiz bilan faxrlanamiz.</li>
+          <li>Biz ajdodlarimiz merosini qadrlaymiz.</li>
+          <li>Yosh avlod Vatanga munosib farzand bo‘lishga intilmoqda.</li>
+          <li>O‘zbekistonning kelajagi yoshlar qo‘lida.</li>
+          <li>Mustaqillik yutuqlarini asrash har birimizning vazifamizdir.</li>
+          <li>Biz mustaqil O‘zbekiston bilan faxrlanamiz.</li>
+          <li>O‘zbekistonda sun’iy intellekt texnologiyalaridan foydalanish rivojlanmoqda.</li>
+          <li>Yoshlar sun’iy intellekt yordamida yangi loyihalar yaratmoqda.</li>
+          <li>O‘zbekistonda IT sohasiga qiziqish tobora ortmoqda.</li>
+          <li>Dasturlashni o‘rganayotgan yoshlar soni ko‘paymoqda.</li>
+          <li>O‘zbekistonda startap loyihalar rivojlanmoqda.</li>
+          <li>Yosh tadbirkorlar zamonaviy g‘oyalarini amalga oshirmoqda.</li>
+          <li>Elektr avtomobillardan foydalanish O‘zbekistonda kengaymoqda.</li>
+          <li>O‘zbekistonda elektr transportini rivojlantirishga e’tibor berilmoqda.</li>
+          <li>Quyosh elektr stansiyalari orqali toza energiya ishlab chiqarilmoqda.</li>
+          <li>Qayta tiklanuvchi energiya manbalaridan foydalanish kengaymoqda.</li>
+          <li>O‘zbekistonda energiyani tejaydigan texnologiyalar joriy etilmoqda.</li>
+          <li>Zamonaviy texnologiyalar ishlab chiqarish korxonalarida qo‘llanilmoqda.</li>
+          <li>O‘zbekistonda yangi texnologik loyihalar amalga oshirilmoqda.</li>
+          <li>Yoshlar xalqaro IT tanlovlarida ishtirok etmoqda.</li>
+          <li>O‘zbekistonlik dasturchilar xalqaro loyihalarda qatnashmoqda.</li>
+          <li>Ta’limda elektron platformalardan foydalanish kengaymoqda.</li>
+          <li>O‘quvchilar internet orqali qo‘shimcha bilim olish imkoniga ega bo‘lmoqda.</li>
+          <li>Maktablarda zamonaviy kompyuter texnologiyalaridan foydalanilmoqda.</li>
+          <li>O‘zbekistonda zamonaviy laboratoriyalar tashkil etilmoqda.</li>
+          <li>Yosh olimlar yangi ilmiy loyihalar ustida ishlamoqda.</li>
+          <li>O‘zbekistonda kosmik texnologiyalarni rivojlantirishga e’tibor berilmoqda.</li>
+          <li>Sun’iy yo‘ldosh texnologiyalaridan foydalanish imkoniyatlari rivojlanmoqda.</li>
+          <li>O‘zbekistonda zamonaviy aloqa texnologiyalari kengaymoqda.</li>
+          <li>Tezkor internetdan foydalanish imkoniyatlari ortmoqda.</li>
+          <li>O‘zbekistonda raqamli xizmatlar soni ko‘paymoqda.</li>
+          <li>Elektron to‘lovlardan foydalanish kundalik hayotda keng tarqalmoqda.</li>
+          <li>Davlat xizmatlarining ko‘plab turlaridan onlayn foydalanish mumkin.</li>
+          <li>O‘zbekistonda zamonaviy turistik maskanlar rivojlantirilmoqda.</li>
+          <li>Sayyohlar uchun raqamli xizmatlardan foydalanish imkoniyatlari kengaymoqda.</li>
+          <li>Tarixiy obidalarni zamonaviy texnologiyalar yordamida tanishtirish imkoniyatlari yaratilmoqda.</li>
+          <li>O‘zbekistonning qadimiy shaharlari xalqaro turizmda mashhur bo‘lmoqda.</li>
+          <li>O‘zbekistonda yangi mehmonxonalar va turistik majmualar tashkil etilmoqda.</li>
+          <li>Toshkentda zamonaviy transport infratuzilmasi rivojlanmoqda.</li>
+          <li>Jamoat transportida zamonaviy texnologiyalardan foydalanilmoqda.</li>
+          <li>Elektr avtobuslardan foydalanish imkoniyatlari kengaymoqda.</li>
+          <li>Temir yo‘l transportida zamonaviy poyezdlardan foydalanilmoqda.</li>
+          <li>O‘zbekiston mahsulotlari xorijiy davlatlarga eksport qilinmoqda.</li>
+          <li>Mahalliy ishlab chiqaruvchilar yangi bozorlarni egallamoqda.</li>
+          <li>O‘zbekistonda yangi eksport imkoniyatlari yaratilmoqda.</li>
+          <li>Qishloq xo‘jaligida zamonaviy texnikalardan foydalanish kengaymoqda.</li>
+          <li>Qishloq xo‘jaligida suvni tejash texnologiyalariga e’tibor berilmoqda.</li>
+          <li>Fermerlar zamonaviy uskunalardan foydalanmoqda.</li>
+          <li>O‘zbekistonda yangi ishlab chiqarish korxonalari tashkil etilmoqda.</li>
+          <li>Mahalliy mahsulotlarning sifati va turlari oshib bormoqda.</li>
+          <li>O‘zbekistonlik yoshlar xalqaro fan olimpiadalarida qatnashmoqda.</li>
+          <li>O‘zbekiston sportchilari xalqaro musobaqalarda Vatanimiz sharafini himoya qilmoqda.</li>
+          <li>Yoshlar uchun yangi sport majmualari qurilmoqda.</li>
+          <li>O‘zbekistonda kitobxonlik va ilm olishga qiziqish kuchaymoqda.</li>
+          <li>Mustaqillik yillarida O‘zbekiston zamonaviy va rivojlanayotgan davlatga aylandi.</li>
+          <li>Mustaqil O‘zbekistonning kelajagi bilimli, iqtidorli va vatanparvar yoshlar qo‘lidadir.</li>
+          <li>O‘zbekistonda raqamli iqtisodiyotga katta e’tibor berilmoqda.</li>
+          <li>Yoshlar zamonaviy texnologiyalar yordamida yangi kasblarni egallamoqda.</li>
+          <li>O‘zbekistonda elektron savdo xizmatlari rivojlanmoqda.</li>
+          <li>Onlayn xarid qilish imkoniyatlari tobora kengaymoqda.</li>
+          <li>Zamonaviy bank xizmatlaridan telefon orqali foydalanish osonlashmoqda.</li>
+          <li>O‘zbekistonda mobil ilovalar orqali turli xizmatlardan foydalanish mumkin.</li>
+          <li>Yoshlar texnologiya bo‘yicha yangi bilimlarni mustaqil o‘rganmoqda.</li>
+          <li>O‘zbekistonda zamonaviy kasblarga talab ortmoqda.</li>
+          <li>Kiberxavfsizlik sohasiga ham katta e’tibor berilmoqda.</li>
+          <li>Raqamli savodxonlikni oshirish uchun turli loyihalar amalga oshirilmoqda.</li>
+          <li>O‘zbekistonda zamonaviy kutubxonalar tashkil etilmoqda.</li>
+          <li>Elektron kitoblardan foydalanish imkoniyatlari kengaymoqda.</li>
+          <li>Yoshlar xalqaro onlayn kurslarda ta’lim olmoqda.</li>
+          <li>O‘zbekistonda masofaviy ta’lim imkoniyatlari rivojlanmoqda.</li>
+          <li>O‘quvchilar turli xalqaro bilim platformalaridan foydalanmoqda.</li>
+          <li>O‘zbekistonda fan va texnologiya bo‘yicha yangi markazlar tashkil etilmoqda.</li>
+          <li>Yosh ixtirochilar o‘z g‘oyalarini hayotga tatbiq etmoqda.</li>
+          <li>O‘zbekistonlik yoshlar xalqaro tanlovlarda o‘z bilimlarini namoyish etmoqda.</li>
+          <li>O‘zbekistonda zamonaviy tibbiy diagnostika usullari rivojlanmoqda.</li>
+          <li>Shifokorlar yangi tibbiy uskunalardan foydalanmoqda.</li>
+          <li>Tibbiyotda raqamli texnologiyalardan foydalanish kengaymoqda.</li>
+          <li>O‘zbekistonda zamonaviy diagnostika markazlari faoliyati rivojlanmoqda.</li>
+          <li>Qishloq joylarda tibbiy xizmatlarni yaxshilashga e’tibor berilmoqda.</li>
+          <li>O‘zbekistonda sog‘lom turmush tarzini targ‘ib qilishga e’tibor berilmoqda.</li>
+          <li>Yoshlar orasida sport bilan shug‘ullanish ommalashmoqda.</li>
+          <li>O‘zbekistonda yangi futbol maydonlari va sport zallari qurilmoqda.</li>
+          <li>Mahallalarda yoshlar uchun sport to‘garaklari tashkil etilmoqda.</li>
+          <li>O‘zbekiston sportchilari jahon miqyosidagi musobaqalarda qatnashmoqda.</li>
+          <li>O‘zbekistonda turli xalqaro sport musobaqalari o‘tkazilmoqda.</li>
+          <li>O‘zbekistonning milliy taomlari xorijiy sayyohlar orasida mashhur bo‘lmoqda.</li>
+          <li>O‘zbekistonda ekologik turizm rivojlanmoqda.</li>
+          <li>Tog‘li hududlarda turizm imkoniyatlari kengaymoqda.</li>
+          <li>Cho‘l hududlarida ham yangi sayyohlik yo‘nalishlari rivojlanmoqda.</li>
+          <li>O‘zbekistonning tarixiy shaharlari sayyohlarni o‘ziga jalb qilmoqda.</li>
+          <li>Milliy hunarmandchilik mahsulotlariga qiziqish ortmoqda.</li>
+          <li>O‘zbek kulollari va hunarmandlari xalqaro ko‘rgazmalarda qatnashmoqda.</li>
+          <li>O‘zbekistonda milliy madaniyatni targ‘ib qiluvchi tadbirlar o‘tkazilmoqda.</li>
+          <li>Yosh ijodkorlar uchun yangi imkoniyatlar yaratilmoqda.</li>
+          <li>O‘zbekistonda zamonaviy kino loyihalari yaratilmoqda.</li>
+          <li>Mahalliy san’atkorlar xalqaro sahnalarda ishtirok etmoqda.</li>
+          <li>O‘zbekistonda yangi bog‘lar va dam olish maskanlari tashkil etilmoqda.</li>
+          <li>Shaharlarimizda piyodalar uchun qulay hududlar ko‘paymoqda.</li>
+          <li>O‘zbekistonda ekologik toza transportdan foydalanishga qiziqish ortmoqda.</li>
+          <li>Chiqindilarni qayta ishlashga e’tibor kuchaymoqda.</li>
+          <li>Tabiiy resurslardan oqilona foydalanish bo‘yicha yangi loyihalar amalga oshirilmoqda.</li>
+          <li>O‘zbekistonda suvni tejash masalasiga katta e’tibor berilmoqda.</li>
+          <li>Zamonaviy sug‘orish texnologiyalari qishloq xo‘jaligida qo‘llanilmoqda.</li>
+          <li>O‘zbekistonda yangi ilmiy va texnologik loyihalar paydo bo‘lmoqda.</li>
+          <li>Mustaqillik yillarida O‘zbekiston ko‘plab sohalarda katta taraqqiyotga erishdi.</li>
+          <li>Mustaqil O‘zbekistonning eng katta boyligi uning bilimli, iqtidorli va vatanparvar xalqidir.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="closing">
+    <p>Mustaqillik bizga erkin va mustaqil yashash imkonini berdi. Bugungi yutuqlar xalqimizning mehnati bilan bog‘liq. Biz mustaqilligimizni qadrlashimiz kerak. Vatanimizning rivojiga har bir inson o‘z hissasini qo‘shishi lozim. Yoshlar Vatanimiz kelajagi uchun yaxshi o‘qishlari kerak. Mustaqillik yillaridagi yutuqlarni muhokama qilish juda muhimdir. Biz kelajakda bundan ham katta yutuqlarga erishishga intilishimiz kerak.</p>
+  </div>
+
+</main>
+
+<svg class="ornament flip" viewBox="0 0 400 28" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="28" fill="url(#star1)"/>
+</svg>
+
+<footer>
+  <div class="names">Ibrohim va Islom</div>
+  © 2026 Mustaqillik Yutuqlari Muhokamasi
+</footer>
+
+<script>
+function toggleTopic(btn, id){
+  const body = document.getElementById(id);
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !isOpen);
+  if(!isOpen){
+    body.style.maxHeight = body.scrollHeight + 'px';
+  } else {
+    body.style.maxHeight = '0px';
+  }
+}
+
+function showPanel(name){
+  document.getElementById('panel-matn').classList.toggle('active', name === 'matn');
+  document.getElementById('panel-maqol').classList.toggle('active', name === 'maqol');
+  document.getElementById('panel-yutuq').classList.toggle('active', name === 'yutuq');
+  document.getElementById('btn-matn').classList.toggle('active', name === 'matn');
+  document.getElementById('btn-maqol').classList.toggle('active', name === 'maqol');
+  document.getElementById('btn-yutuq').classList.toggle('active', name === 'yutuq');
+}
+</script>
+
+</body>
+</html>
